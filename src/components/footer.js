@@ -67,27 +67,24 @@ const Footer = ({ setCurrentPage }) => {
 
             {/* Social Icons */}
             <div className="flex space-x-4 mb-4 text-gray-400">
-              <a
-                href="#"
+              <button
                 aria-label="Instagram"
                 className="hover:text-white transition-colors duration-200"
               >
                 <FontAwesomeIcon icon={faInstagram} size="lg" />
-              </a>
-              <a
-                href="#"
+              </button>
+              <button
                 aria-label="Facebook"
                 className="hover:text-white transition-colors duration-200"
               >
                 <FontAwesomeIcon icon={faFacebook} size="lg" />
-              </a>
-              <a
-                href="#"
+              </button>
+              <button
                 aria-label="Twitter"
                 className="hover:text-white transition-colors duration-200"
               >
                 <FontAwesomeIcon icon={faTwitter} size="lg" />
-              </a>
+              </button>
               <a
                 href="https://www.youtube.com/@DrPrashantKashyap-Cardiologist"
                 target="_blank"
@@ -152,16 +149,12 @@ const Footer = ({ setCurrentPage }) => {
                 "Holter Monitoring"
               ].map((service) => (
                 <li key={service}>
-                  <a
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setCurrentPage(service);
-                    }}
-                    className="hover:text-white transition-colors"
+                  <button
+                    onClick={() => setCurrentPage(service)}
+                    className="hover:text-white transition-colors text-left"
                   >
                     {service}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -183,16 +176,12 @@ const Footer = ({ setCurrentPage }) => {
                 "Angioplasty"
               ].map((service) => (
                 <li key={service}>
-                  <a
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setCurrentPage(service);
-                    }}
-                    className="hover:text-white transition-colors"
+                  <button
+                    onClick={() => setCurrentPage(service)}
+                    className="hover:text-white transition-colors text-left"
                   >
                     {service}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
