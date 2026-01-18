@@ -35,6 +35,36 @@ const Footer = ({ setCurrentPage }) => {
               </span>
             </div>
 
+            {/* Navigation Links */}
+            <div className="mb-4">
+              <ul className="space-y-2">
+                <li>
+                  <button
+                    onClick={() => setCurrentPage("Videos")}
+                    className="text-gray-300 hover:text-white transition-colors duration-200 text-left"
+                  >
+                    Educational Videos
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => setCurrentPage("Gallery")}
+                    className="text-gray-300 hover:text-white transition-colors duration-200 text-left"
+                  >
+                    Gallery
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => setCurrentPage("AboutUs")}
+                    className="text-gray-300 hover:text-white transition-colors duration-200 text-left"
+                  >
+                    About Us
+                  </button>
+                </li>
+              </ul>
+            </div>
+
             {/* Social Icons */}
             <div className="flex space-x-4 mb-4 text-gray-400">
               <a
@@ -59,7 +89,9 @@ const Footer = ({ setCurrentPage }) => {
                 <FontAwesomeIcon icon={faTwitter} size="lg" />
               </a>
               <a
-                href="#"
+                href="https://www.youtube.com/@DrPrashantKashyap-Cardiologist"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="YouTube"
                 className="hover:text-white transition-colors duration-200"
               >

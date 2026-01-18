@@ -9,6 +9,7 @@ import ToolPage from './pages/ToolPage';
 import DoctorDetailPage from './pages/DoctorDetailPage';
 import BookingPage from './pages/BookingPage';
 import GalleryPage from './pages/GalleryPage';
+import VideoPage from './pages/VideoPage';
 import { HOSPITAL_NAME } from './data';
 import AboutUsPage from './pages/AboutUsPage';
 import { WhatsAppIcon } from './components/Icons';
@@ -47,6 +48,8 @@ const App = () => {
             return <AboutUsPage setCurrentPage={setCurrentPage} />;
         } else if (currentPage === 'BookAppointment') {
             return <BookingPage selectedDoctor={selectedDoctor} setCurrentPage={setCurrentPage} />;
+        } else if (currentPage === 'Videos') {
+            return <VideoPage setCurrentPage={setCurrentPage} />;
         } else if (currentPage === 'Gallery') {
             return <GalleryPage />;
         } else if (currentPage === 'Consultation' || currentPage === 'Lab Tests' || currentPage === 'Health Packages' || currentPage === 'Scans & X-Rays' || currentPage === 'Long Term Care Plans') {
@@ -98,6 +101,7 @@ const App = () => {
                     <div className="hidden md:flex items-center space-x-6">
                         <button onClick={() => setCurrentPage('OurServices')} className={`bg-transparent border-none cursor-pointer text-gray-600 hover:text-gray-900 transition-colors duration-200 ${currentPage === 'OurServices' ? 'font-bold text-[#40c1b9]' : ''}`}>Our Services</button>
                         <button onClick={() => setCurrentPage('Doctors')} className={`bg-transparent border-none cursor-pointer text-gray-600 hover:text-gray-900 transition-colors duration-200 ${currentPage === 'Doctors' ? 'font-bold text-[#40c1b9]' : ''}`}>Find a Doctor</button>
+                        <button onClick={() => setCurrentPage('Videos')} className={`bg-transparent border-none cursor-pointer text-gray-600 hover:text-gray-900 transition-colors duration-200 ${currentPage === 'Videos' ? 'font-bold text-[#40c1b9]' : ''}`}>Videos</button>
                         <button onClick={() => setCurrentPage('Gallery')} className={`bg-transparent border-none cursor-pointer text-gray-600 hover:text-gray-900 transition-colors duration-200 ${currentPage === 'Gallery' ? 'font-bold text-[#40c1b9]' : ''}`}>Gallery</button>
                         <button
                             onClick={() => setCurrentPage('AboutUs')}

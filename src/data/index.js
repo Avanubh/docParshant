@@ -41,7 +41,7 @@ export const specialtiesData = [
         doctorDetails: {
             name: 'Dr. Prashant Kashyap',
             qualifications: 'MBBS, MD - Medicine, DM - Cardiology, Gold Medalist',
-            specialty: 'Orthodontist',
+            specialty: 'Cardiology',
             hospital: HOSPITAL_NAME,
             location: 'Begusarai, Bihar',
             address: 'C/O DR. DINESH SINGH, JYOTI KUNJ, I.M.A. PATH, NEAR T.V. TOWER. BEGUSARAI-851101, BIHAR',
@@ -63,7 +63,7 @@ export const specialtiesData = [
         doctorDetails: {
             name: 'Dr. Dinesh Singh',
             qualifications: 'MBBS, MD (Medicine)',
-            specialty: 'Physicaian & Neurologist',
+            specialty: 'Physician & Neurologist',
             hospital: HOSPITAL_NAME,
             location: 'Begusarai, Bihar',
             address: 'C/O DR. DINESH SINGH, JYOTI KUNJ, I.M.A. PATH, NEAR T.V. TOWER. BEGUSARAI-851101, BIHAR',
@@ -208,3 +208,54 @@ export const faqData = [
         answer: 'Absolutely. We use a secure and encrypted platform for all consultations. Your medical records and personal information are kept confidential and are not shared with anyone without your consent.'
     }
 ];
+
+export const videosData = [
+    {
+        id: 1,
+        title: 'Heart Health Education Video 1',
+        videoId: 'c0GhWrXRWNk',
+        thumbnail: `https://img.youtube.com/vi/c0GhWrXRWNk/maxresdefault.jpg`,
+        description: 'Educational content about heart health and cardiac care by Dr. Prashant Kashyap'
+    },
+    {
+        id: 2,
+        title: 'Cardiac Care Tips Video 2',
+        videoId: 'qTq4PTD7NBA',
+        thumbnail: `https://img.youtube.com/vi/qTq4PTD7NBA/maxresdefault.jpg`,
+        description: 'Important tips for maintaining cardiovascular health'
+    },
+    {
+        id: 3,
+        title: 'Heart Disease Prevention Video 3',
+        videoId: 'aRrIdHRCPNo',
+        thumbnail: `https://img.youtube.com/vi/aRrIdHRCPNo/maxresdefault.jpg`,
+        description: 'Learn about preventing heart diseases and maintaining a healthy lifestyle'
+    },
+    {
+        id: 4,
+        title: 'Cardiology Insights Video 4',
+        videoId: 'VkJA4jlEd-Y',
+        thumbnail: `https://img.youtube.com/vi/VkJA4jlEd-Y/maxresdefault.jpg`,
+        description: 'Professional insights into cardiology and heart treatments'
+    },
+    {
+        id: 5,
+        title: 'Heart Health Awareness Video 5',
+        videoId: 'DPEYcE2SNoM',
+        thumbnail: `https://img.youtube.com/vi/DPEYcE2SNoM/maxresdefault.jpg`,
+        description: 'Raising awareness about heart health and early detection'
+    },
+    {
+        id: 6,
+        title: 'Cardiac Treatment Options Video 6',
+        videoId: 'nljDQG0FVlc',
+        thumbnail: `https://img.youtube.com/vi/nljDQG0FVlc/maxresdefault.jpg`,
+        description: 'Overview of modern cardiac treatment options and procedures'
+    }
+];
+
+export const youtubeChannelData = {
+    channelName: 'Dr Prashant Kashyap - Cardiologist',
+    channelUrl: 'https://www.youtube.com/@DrPrashantKashyap-Cardiologist',
+    description: 'Subscribe to our YouTube channel for more educational content about heart health, cardiac care, and medical insights from Dr. Prashant Kashyap.'
+};
