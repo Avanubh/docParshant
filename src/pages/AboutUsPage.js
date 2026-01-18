@@ -16,7 +16,7 @@ const AboutUsPage = ({ setCurrentPage }) => {
         }, 4000); // Change slide every 4 seconds
 
         return () => clearInterval(interval);
-    }, []);
+    }, [aboutImages.length]);
 
     return (
         <section className="py-20 bg-gray-50">

@@ -17,7 +17,7 @@ const GalleryPage = () => {
                         <div key={index} className="overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 group">
                             <img
                                 src={img}
-                                alt={`Gallery Image ${index + 1}`}
+                                alt={`Gallery ${index + 1}`}
                                 className="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500"
                             />
                         </div>
