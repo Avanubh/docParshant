@@ -70,7 +70,7 @@ export const specialtiesData = [
             emergency: '+91 80029 82980',
             email: 'prashantkashyap2804@gmail.com',
             website: 'www.drprashantkashyap.com',
-            doctorImageUrl: 'https://i.ibb.co/k6KrsFsv/Dinesh-Singh.jpg',
+            doctorImageUrl: require('../images/drf1.jpeg'),
             galleryImages: [
                 'https://i.ibb.co/5g5hM26V/Dinesh-Sigh-3.jpg',
                 'https://i.ibb.co/BpTNjnS/Dinesh-Singh-2.jpg',

@@ -36,7 +36,7 @@ const BookingPage = ({ selectedDoctor }) => {
         return `Hi, I want to book an appointment at ${HOSPITAL_NAME}.\n\nPatient Details:\n- Name: ${patientName}\n- Age: ${patientAge}\n- Location: ${location}\n- Preferred Date: ${preferredDate}\n- Preferred Time: ${preferredTime}\n\nAdditional Message: ${message}\n\nPlease confirm the booking.`;
     };
 
-    const whatsappUrl = `https://wa.me/918002982980?text=${encodeURIComponent(generateWhatsAppMessage())}`;
+    const whatsappUrl = `https://wa.me/918084388876?text=${encodeURIComponent(generateWhatsAppMessage())}`;
 
     if (isSubmitted) {
         return (
