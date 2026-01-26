@@ -1,23 +1,31 @@
 // src/pages/HomePage.js
 import React, { useState, useEffect } from 'react';
-import op1 from '../images/op1.jpeg';
+import { useNavigate } from 'react-router-dom';
+import ot from '../images/gallery/ot.jpeg';
 import dr1 from '../images/dr1.jpeg';
-import drf1 from '../images/drf1.jpeg';
-import st1 from '../images/st1.jpeg';
+import cathlab from '../images/gallery/cathlab.jpeg';
+import pcare from '../images/gallery/pcare.jpeg';
 import memcard1 from '../images/memcard1.png';
 import { specialtiesData, testimonialsData, benefitsData, faqData, HOSPITAL_NAME } from '../data';
 import { ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon } from '../components/Icons';
 
-const images = [op1, dr1, drf1, st1];
+const images = [ot, dr1, cathlab, pcare];
 
 const HomePage = ({ openIndex, handleToggle, handleDoctorClick }) => {
+    const navigate = useNavigate();
     const [currentSlideHome, setCurrentSlideHome] = useState(0);
     const [currentSlide, setCurrentSlide] = useState(0);
     const aboutImages = [
         'https://i.postimg.cc/HnCctxcp/hospital.jpg',
-        'https://placehold.co/800x400/28a745/ffffff?text=State-of-the-Art+Facilities',
+        'https://i.postimg.cc/HnCctxcp/hospital.jpg',
         'https://i.postimg.cc/HnCctxcp/hospital.jpg'
     ];
+
+    // Function to handle doctor navigation using React Router
+    const handleDoctorNavigation = (doctor) => {
+        handleDoctorClick(doctor); // Still call the original function to set selected doctor
+        navigate(`/doctor/${doctor.id || doctor.name.replace(/\s+/g, '-').toLowerCase()}`);
+    };
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -72,7 +80,7 @@ const HomePage = ({ openIndex, handleToggle, handleDoctorClick }) => {
                                     Top Doctors
                                 </span>
                                 <span className="text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-600 block mt-2">
-                                    at ParshanthHealth
+                                    at Prashant Heart Hospital
                                 </span>
                             </h1>
 
@@ -81,7 +89,7 @@ const HomePage = ({ openIndex, handleToggle, handleDoctorClick }) => {
                             </p>
                             
                             <div className="flex flex-col sm:flex-row items-center gap-4">
-                                <div className="inline-flex items-center bg-gradient-to-r from-[#40c1b9] to-teal-400 bg-opacity-10 text-[#40c1b9] text-sm font-bold py-3 px-6 rounded-full shadow-lg border-2 border-[#40c1b9]/20">
+                                <div className="inline-flex items-center bg-gradient-to-r from-[#black] to-teal-400 bg-opacity-10 text-[#40c1b9] text-sm font-bold py-3 px-6 rounded-full shadow-lg border-2 border-[#40c1b9]/20">
                                     <span className="text-lg">🎉</span>
                                     <span className="mx-2">Flat 10% Off</span>
                                     <span className="bg-[#fe6645] text-white rounded-full py-1 px-3 text-xs font-bold animate-bounce">NEW10</span>
@@ -121,10 +129,10 @@ const HomePage = ({ openIndex, handleToggle, handleDoctorClick }) => {
                         </div>
 
                         {/* Image Carousel */}
-                        <div className="lg:w-1/2 flex justify-center lg:justify-end relative">
+                        <div className="w-full lg:w-1/2 flex justify-center lg:justify-end relative px-4 lg:px-0">
                             <div className="relative w-full max-w-2xl">
                                 {/* Main Image Container */}
-                                <div className="relative h-96 md:h-[500px] overflow-hidden rounded-3xl shadow-2xl bg-white p-4">
+                                <div className="relative h-80 md:h-96 lg:h-[500px] overflow-hidden rounded-3xl shadow-2xl bg-white p-2 md:p-4">
                                     <div className="relative h-full overflow-hidden rounded-2xl">
                                         {images.map((img, index) => (
                                             <img
@@ -145,37 +153,37 @@ const HomePage = ({ openIndex, handleToggle, handleDoctorClick }) => {
                                 </div>
 
                                 {/* Floating Elements */}
-                                <div className="absolute -top-6 -right-6 bg-white rounded-2xl p-4 shadow-xl border border-gray-100">
+                                <div className="absolute -top-3 -right-3 md:-top-6 md:-right-6 bg-white rounded-xl md:rounded-2xl p-2 md:p-4 shadow-xl border border-gray-100">
                                     <div className="flex items-center space-x-2">
-                                        <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                                        <span className="text-sm font-semibold text-gray-700">Online Now</span>
+                                        <div className="w-2 h-2 md:w-3 md:h-3 bg-green-400 rounded-full animate-pulse"></div>
+                                        <span className="text-xs md:text-sm font-semibold text-gray-700">Online Now</span>
                                     </div>
                                 </div>
 
-                                <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-4 shadow-xl border border-gray-100">
-                                    <div className="flex items-center space-x-3">
-                                        <div className="flex -space-x-2">
-                                            <div className="w-8 h-8 bg-[#40c1b9] rounded-full border-2 border-white"></div>
-                                            <div className="w-8 h-8 bg-[#fe6645] rounded-full border-2 border-white"></div>
-                                            <div className="w-8 h-8 bg-purple-500 rounded-full border-2 border-white"></div>
+                                <div className="absolute -bottom-3 -left-3 md:-bottom-6 md:-left-6 bg-white rounded-xl md:rounded-2xl p-2 md:p-4 shadow-xl border border-gray-100">
+                                    <div className="flex items-center space-x-2 md:space-x-3">
+                                        <div className="flex -space-x-1 md:-space-x-2">
+                                            <div className="w-6 h-6 md:w-8 md:h-8 bg-[#40c1b9] rounded-full border-2 border-white"></div>
+                                            <div className="w-6 h-6 md:w-8 md:h-8 bg-[#fe6645] rounded-full border-2 border-white"></div>
+                                            <div className="w-6 h-6 md:w-8 md:h-8 bg-purple-500 rounded-full border-2 border-white"></div>
                                         </div>
                                         <div>
-                                            <div className="text-sm font-bold text-gray-800">2.5K+</div>
+                                            <div className="text-xs md:text-sm font-bold text-gray-800">2.5K+</div>
                                             <div className="text-xs text-gray-500">Reviews</div>
                                         </div>
                                     </div>
                                 </div>
 
                                 {/* Enhanced Slide Indicators */}
-                                <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 flex space-x-3 bg-white/90 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg">
+                                <div className="absolute -bottom-8 md:-bottom-12 left-1/2 transform -translate-x-1/2 flex space-x-2 md:space-x-3 bg-white/90 backdrop-blur-sm px-4 md:px-6 py-2 md:py-3 rounded-full shadow-lg">
                                     {images.map((_, index) => (
                                         <button
                                             key={index}
                                             onClick={() => setCurrentSlideHome(index)}
                                             className={`transition-all duration-300 ${
                                                 index === currentSlideHome 
-                                                    ? 'w-8 h-3 bg-[#40c1b9] rounded-full' 
-                                                    : 'w-3 h-3 bg-gray-300 rounded-full hover:bg-gray-400'
+                                                    ? 'w-6 md:w-8 h-2 md:h-3 bg-[#40c1b9] rounded-full' 
+                                                    : 'w-2 md:w-3 h-2 md:h-3 bg-gray-300 rounded-full hover:bg-gray-400'
                                             }`}
                                             aria-label={`Go to slide ${index + 1}`}
                                         />
@@ -210,9 +218,9 @@ const HomePage = ({ openIndex, handleToggle, handleDoctorClick }) => {
                         </p>
                     </div>
 
-                    <div className="relative w-full max-w-6xl mx-auto group">
+                    <div className="relative w-full max-w-6xl mx-auto group px-4 lg:px-0">
                         {/* Main Image Container */}
-                        <div className="relative overflow-hidden rounded-3xl shadow-2xl h-80 md:h-[500px] bg-white p-6">
+                        <div className="relative overflow-hidden rounded-3xl shadow-2xl h-64 md:h-80 lg:h-[500px] bg-white p-3 md:p-6">
                             <div className="relative h-full overflow-hidden rounded-2xl">
                                 {aboutImages.map((img, index) => (
                                     <img
@@ -231,23 +239,23 @@ const HomePage = ({ openIndex, handleToggle, handleDoctorClick }) => {
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
                                 
                                 {/* Content Overlay */}
-                                <div className="absolute bottom-6 left-6 text-white">
-                                    <h3 className="text-2xl font-bold mb-2">Advanced Medical Equipment</h3>
-                                    <p className="text-white/90">Equipped with the latest technology for accurate diagnosis and treatment</p>
+                                <div className="absolute bottom-3 left-3 md:bottom-6 md:left-6 text-white">
+                                    <h3 className="text-lg md:text-2xl font-bold mb-1 md:mb-2">Advanced Medical Equipment</h3>
+                                    <p className="text-sm md:text-base text-white/90">Equipped with the latest technology for accurate diagnosis and treatment</p>
                                 </div>
                             </div>
 
                             {/* Enhanced Navigation Buttons */}
                             <button
                                 onClick={prevSlide}
-                                className="absolute top-1/2 left-8 transform -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-4 rounded-full shadow-xl transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-[#40c1b9]/20"
+                                className="absolute top-1/2 left-2 md:left-8 transform -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-2 md:p-4 rounded-full shadow-xl transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-[#40c1b9]/20"
                                 aria-label="Previous Slide"
                             >
                                 <ChevronLeftIcon />
                             </button>
                             <button
                                 onClick={nextSlide}
-                                className="absolute top-1/2 right-8 transform -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-4 rounded-full shadow-xl transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-[#40c1b9]/20"
+                                className="absolute top-1/2 right-2 md:right-8 transform -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-2 md:p-4 rounded-full shadow-xl transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-[#40c1b9]/20"
                                 aria-label="Next Slide"
                             >
                                 <ChevronRightIcon />
@@ -255,15 +263,15 @@ const HomePage = ({ openIndex, handleToggle, handleDoctorClick }) => {
                         </div>
 
                         {/* Enhanced Slide Indicators */}
-                        <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-4 bg-white/90 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg">
+                        <div className="absolute -bottom-6 md:-bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 md:space-x-4 bg-white/90 backdrop-blur-sm px-4 md:px-6 py-2 md:py-3 rounded-full shadow-lg">
                             {aboutImages.map((_, index) => (
                                 <button
                                     key={index}
                                     onClick={() => setCurrentSlide(index)}
                                     className={`transition-all duration-300 ${
                                         index === currentSlide 
-                                            ? 'w-10 h-3 bg-gradient-to-r from-[#40c1b9] to-[#fe6645] rounded-full' 
-                                            : 'w-3 h-3 bg-gray-300 rounded-full hover:bg-gray-400 hover:scale-125'
+                                            ? 'w-8 md:w-10 h-2 md:h-3 bg-gradient-to-r from-[#40c1b9] to-[#fe6645] rounded-full' 
+                                            : 'w-2 md:w-3 h-2 md:h-3 bg-gray-300 rounded-full hover:bg-gray-400 hover:scale-125'
                                     }`}
                                     aria-label={`Go to slide ${index + 1}`}
                                 />
@@ -340,7 +348,7 @@ const HomePage = ({ openIndex, handleToggle, handleDoctorClick }) => {
                                 <div
                                     key={index}
                                     className="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer overflow-hidden border border-gray-100 hover:border-[#40c1b9]/20 transform hover:-translate-y-2"
-                                    onClick={() => handleDoctorClick(doctor)}
+                                    onClick={() => handleDoctorNavigation(doctor)}
                                 >
                                     {/* Card Header with Gradient */}
                                     <div className="relative bg-gradient-to-br from-[#40c1b9]/5 to-[#fe6645]/5 p-8 pb-4">
@@ -362,7 +370,7 @@ const HomePage = ({ openIndex, handleToggle, handleDoctorClick }) => {
                                         {/* Doctor Info */}
                                         <div className="text-center">
                                             <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-[#40c1b9] transition-colors">
-                                                Dr. {doctor.name}
+                                                {doctor.name}
                                             </h3>
                                             <div className="inline-flex items-center bg-[#40c1b9]/10 text-[#40c1b9] text-sm font-semibold py-1 px-3 rounded-full mb-4">
                                                 <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
@@ -383,15 +391,15 @@ const HomePage = ({ openIndex, handleToggle, handleDoctorClick }) => {
                                         {/* Stats */}
                                         <div className="flex justify-between items-center mb-6 p-4 bg-gray-50 rounded-2xl">
                                             <div className="text-center">
-                                                <div className="text-lg font-bold text-[#40c1b9]">15+</div>
+                                                <div className="text-lg font-bold text-[#40c1b9]">{doctor.experience}+</div>
                                                 <div className="text-xs text-gray-500">Years Exp.</div>
                                             </div>
                                             <div className="text-center">
-                                                <div className="text-lg font-bold text-[#fe6645]">1000+</div>
+                                                <div className="text-lg font-bold text-[#fe6645]">{doctor.patients >= 1000 ? `${Math.floor(doctor.patients/1000)}K+` : `${doctor.patients}+`}</div>
                                                 <div className="text-xs text-gray-500">Patients</div>
                                             </div>
                                             <div className="text-center">
-                                                <div className="text-lg font-bold text-purple-600">4.9★</div>
+                                                <div className="text-lg font-bold text-purple-600">{doctor.rating}★</div>
                                                 <div className="text-xs text-gray-500">Rating</div>
                                             </div>
                                         </div>
@@ -402,7 +410,7 @@ const HomePage = ({ openIndex, handleToggle, handleDoctorClick }) => {
                                                 className="flex-1 bg-gradient-to-r from-[#fe6645] to-orange-500 text-white py-3 px-4 rounded-2xl font-semibold hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center"
                                                 onClick={(e) => {
                                                     e.stopPropagation();
-                                                    handleDoctorClick(doctor);
+                                                    handleDoctorNavigation(doctor);
                                                 }}
                                             >
                                                 <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -693,20 +701,20 @@ const HomePage = ({ openIndex, handleToggle, handleDoctorClick }) => {
                                 
                                 <div className="relative z-10">
                                     {/* Quote Icon */}
-                                    <div className="absolute -top-2 -left-2 w-8 h-8 bg-gradient-to-br from-[#40c1b9] to-[#fe6645] rounded-full flex items-center justify-center text-white text-sm font-bold opacity-20 group-hover:opacity-100 transition-opacity duration-300">
-                                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-1 1H4a1 1 0 01-1-1v-3zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                                    <div className="absolute -top-3 -left-3 w-10 h-10 bg-gradient-to-br from-[#40c1b9] to-[#fe6645] rounded-full flex items-center justify-center text-white text-sm font-bold opacity-30 group-hover:opacity-100 transition-opacity duration-300 shadow-lg">
+                                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fillRule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2H6zm1 2a1 1 0 000 2h6a1 1 0 100-2H7zM6 7a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clipRule="evenodd" />
                                         </svg>
                                     </div>
 
                                     {/* Rating Stars */}
-                                    <div className="flex items-center mb-4">
+                                    <div className="flex items-center justify-center mb-6">
                                         {[...Array(5)].map((_, i) => (
                                             <svg key={i} className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
                                                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                                             </svg>
                                         ))}
-                                        <span className="ml-2 text-sm text-gray-500 font-medium">5.0</span>
+                                        <span className="ml-2 text-sm text-gray-600 font-semibold">5.0</span>
                                     </div>
 
                                     {/* Testimonial Text */}
@@ -847,7 +855,7 @@ const HomePage = ({ openIndex, handleToggle, handleDoctorClick }) => {
                                             <span className="text-sm text-gray-600 font-medium">
                                                 {index === 0 ? 'Operating Theater' : 
                                                  index === 1 ? 'Consultation Room' : 
-                                                 index === 2 ? 'Medical Equipment' : 
+                                                 index === 2 ? 'Cathlab' : 
                                                  'Patient Care Area'}
                                             </span>
                                         </div>

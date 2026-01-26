@@ -1,9 +1,11 @@
 // src/pages/BookingPage.js
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { HOSPITAL_NAME } from '../data';
 import { WhatsAppIcon } from '../components/Icons';
 
-const BookingPage = ({ selectedDoctor, setCurrentPage }) => {
+const BookingPage = ({ selectedDoctor }) => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         patientName: '',
         patientAge: '',
@@ -56,7 +58,7 @@ const BookingPage = ({ selectedDoctor, setCurrentPage }) => {
                         </a>
                     </div>
                     <button
-                        onClick={() => setCurrentPage('Home')}
+                        onClick={() => navigate('/')}
                         className="bg-[#fe6645] text-white py-3 px-8 rounded-full font-semibold shadow-lg hover:bg-opacity-90 transition-colors duration-200"
                     >
                         Back to Home

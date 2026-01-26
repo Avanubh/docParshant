@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { videosData, youtubeChannelData } from '../data';
 
-const VideoPage = ({ setCurrentPage }) => {
+const VideoPage = () => {
+    const navigate = useNavigate();
     const [selectedVideo, setSelectedVideo] = useState(null);
 
     const openVideoModal = (video) => {
@@ -133,13 +135,13 @@ const VideoPage = ({ setCurrentPage }) => {
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                             <button 
-                                onClick={() => setCurrentPage && setCurrentPage('BookAppointment')}
+                                onClick={() => navigate('/book-appointment')}
                                 className="bg-white text-[#40c1b9] px-8 py-4 rounded-xl font-bold hover:bg-gray-100 transform hover:scale-105 transition-all duration-200 shadow-lg"
                             >
                                 Book Consultation Now
                             </button>
                             <button 
-                                onClick={() => setCurrentPage && setCurrentPage('Doctors')}
+                                onClick={() => navigate('/doctors')}
                                 className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-[#40c1b9] transition-all duration-200"
                             >
                                 Meet Our Doctors

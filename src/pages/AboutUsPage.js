@@ -1,9 +1,12 @@
 // src/pages/AboutUsPage.js
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { HOSPITAL_NAME } from '../data';
 
-const AboutUsPage = ({ setCurrentPage }) => {
+const AboutUsPage = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
+    const navigate = useNavigate();
+    
     const aboutImages = [
         'https://i.postimg.cc/HnCctxcp/hospital.jpg',
         'https://i.postimg.cc/HnCctxcp/hospital.jpg',
@@ -26,13 +29,13 @@ const AboutUsPage = ({ setCurrentPage }) => {
                 {/* Image Scroller Section */}
                 <section className="mb-16">
                     <div className="relative w-full max-w-4xl mx-auto">
-                        <div className="overflow-hidden rounded-3xl shadow-2xl h-64 md:h-80">
+                        <div className="overflow-hidden rounded-3xl shadow-2xl h-64 md:h-80 relative">
                             {aboutImages.map((img, index) => (
                                 <img
                                     key={index}
                                     src={img}
                                     alt={`About ${index + 1}`}
-                                    className={`w-full h-full object-cover transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
+                                    className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
                                 />
                             ))}
                         </div>
@@ -58,12 +61,12 @@ const AboutUsPage = ({ setCurrentPage }) => {
                         With a commitment to innovation, patient-centric care, and medical excellence, we serve millions with our state-of-the-art facilities and expert teams.
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-8">
-                        <div className="text-center">
+                        {/* <div className="text-center">
                             <div className="text-3xl font-bold text-[#40c1b9]">4+</div>
                             <div className="text-sm text-gray-600">Hospitals</div>
-                        </div>
+                        </div> */}
                         <div className="text-center">
-                            <div className="text-3xl font-bold text-[#40c1b9]">1000+</div>
+                            <div className="text-3xl font-bold text-[#40c1b9]">25+</div>
                             <div className="text-sm text-gray-600">Doctors</div>
                         </div>
                         <div className="text-center">
@@ -120,13 +123,13 @@ const AboutUsPage = ({ setCurrentPage }) => {
                     <p className="text-xl text-gray-600 mb-8">Experience the {HOSPITAL_NAME} difference today.</p>
                     <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
                         <button
-                            onClick={() => setCurrentPage('OurServices')}
+                            onClick={() => navigate('/our-services')}
                             className="bg-[#40c1b9] text-white py-3 px-8 rounded-full font-semibold shadow-lg hover:bg-opacity-90 transition-colors duration-200"
                         >
                             Explore Services
                         </button>
                         <button
-                            onClick={() => setCurrentPage('Doctors')}
+                            onClick={() => navigate('/doctors')}
                             className="border border-[#40c1b9] text-[#40c1b9] py-3 px-8 rounded-full font-semibold hover:bg-[#40c1b9] hover:text-white transition-colors duration-200"
                         >
                             Meet Our Doctors

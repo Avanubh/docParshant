@@ -13,30 +13,8 @@ const doctor2Images = importAll(require.context('../images/Doctor2', false, /\.(
 
 export const specialtiesData = [
     {
-        title: 'Gynecology',
-        description: 'Depression, Anxiety, OCD, Phobias',
-        imageUrl: 'https://i.ibb.co/5xWnBrbF/Sini.png',
-        doctorDetails: {
-            name: 'Dr. Seep Sethi',
-            qualifications: 'MBBS(MAMC)/MS OBGYN(Mumbai)/ FMAS/DMAS',
-            specialty: 'Obstetrics and Gynecology (OB-GYN)',
-            hospital: HOSPITAL_NAME,
-            location: 'Begusarai, Bihar',
-            address: 'C/O DR. DINESH SINGH, JYOTI KUNJ, I.M.A. PATH, NEAR T.V. TOWER. BEGUSARAI-851101, BIHAR',
-            emergency: '+91-6243-222189',
-            email: 'priya.sharma@prashanthhealth.com',
-            website: 'www.prashanthhealth.com',
-            doctorImageUrl: 'https://i.ibb.co/5xWnBrbF/Sini.png',
-            galleryImages: doctor1Images,
-            experience: 15,
-            patients: 5000,
-            rating: 4.9,
-            gender: 'female'
-        }
-    },
-    {
-        title: 'Physician',
-        description: 'Bad Breath, Dental Cavity, Tooth Pain, Gum Issues',
+        title: 'Cardiologist',
+        description: 'Heart Disease, Cardiac Care, Chest Pain, High Blood Pressure',
         imageUrl: 'https://i.ibb.co/Kx9bpXr7/dr1.jpg',
         doctorDetails: {
             name: 'Dr. Prashant Kashyap',
@@ -45,9 +23,9 @@ export const specialtiesData = [
             hospital: HOSPITAL_NAME,
             location: 'Begusarai, Bihar',
             address: 'C/O DR. DINESH SINGH, JYOTI KUNJ, I.M.A. PATH, NEAR T.V. TOWER. BEGUSARAI-851101, BIHAR',
-            emergency: '+91-9876-543210',
-            email: 'rohan.patel@prashanthhealth.com',
-            website: 'www.prashanthhealth.com',
+            emergency: '+91 80029 82980',
+            email: 'prashantkashyap2804@gmail.com',
+            website: 'www.drprashantkashyap.com',
             doctorImageUrl: 'https://i.ibb.co/Kx9bpXr7/dr1.jpg',
             galleryImages: doctor2Images,
             experience: 10,
@@ -57,8 +35,30 @@ export const specialtiesData = [
         }
     },
     {
+        title: 'Gynecology',
+        description: 'Women Health, Pregnancy Care, Fertility Issues',
+        imageUrl: require('../images/Doctor1/seepsethi.jpeg'),
+        doctorDetails: {
+            name: 'Dr. Seep Sethi',
+            qualifications: 'MBBS(MAMC)/MS OBGYN(Mumbai)/ FMAS/DMAS',
+            specialty: 'Obstetrics and Gynecology (OB-GYN)',
+            hospital: HOSPITAL_NAME,
+            location: 'Begusarai, Bihar',
+            address: 'C/O DR. DINESH SINGH, JYOTI KUNJ, I.M.A. PATH, NEAR T.V. TOWER. BEGUSARAI-851101, BIHAR',
+            emergency: '+91 80029 82980',
+            email: 'prashantkashyap2804@gmail.com',
+            website: 'www.drprashantkashyap.com',
+            doctorImageUrl: require('../images/Doctor1/seepsethi.jpeg'),
+            galleryImages: doctor1Images,
+            experience: 5,
+            patients: 2000,
+            rating: 4.9,
+            gender: 'female'
+        }
+    },
+    {
         title: 'Physician',
-        description: 'Depression, Anxiety, Eating Disorders, Autism, ADHD',
+        description: 'General Medicine, Neurological Issues, Internal Medicine',
         imageUrl: 'https://i.ibb.co/k6KrsFsv/Dinesh-Singh.jpg',
         doctorDetails: {
             name: 'Dr. Dinesh Singh',
@@ -67,27 +67,26 @@ export const specialtiesData = [
             hospital: HOSPITAL_NAME,
             location: 'Begusarai, Bihar',
             address: 'C/O DR. DINESH SINGH, JYOTI KUNJ, I.M.A. PATH, NEAR T.V. TOWER. BEGUSARAI-851101, BIHAR',
-            emergency: '+91-5555-555555',
-            email: 'anjali@prashanthhealth.com',
-            website: 'www.prashanthhealth.com',
+            emergency: '+91 80029 82980',
+            email: 'prashantkashyap2804@gmail.com',
+            website: 'www.drprashantkashyap.com',
             doctorImageUrl: 'https://i.ibb.co/k6KrsFsv/Dinesh-Singh.jpg',
             galleryImages: [
                 'https://i.ibb.co/5g5hM26V/Dinesh-Sigh-3.jpg',
                 'https://i.ibb.co/BpTNjnS/Dinesh-Singh-2.jpg',
                 'https://ibb.co/zMPJb60',
-                'https://placehold.co/300x200/40c1b9/ffffff?text=Psychiatry+Clinic+3',
-                'https://placehold.co/300x200/40c1b9/ffffff?text=Psychiatry+Clinic+4'
+                'https://placehold.co/300x200/40c1b9/ffffff?text=Medicine+Clinic+3',
+                'https://placehold.co/300x200/40c1b9/ffffff?text=Medicine+Clinic+4'
             ],
             experience: 12,
-            patients: 2000,
+            patients: 7000,
             rating: 4.8,
-            gender: 'female'
+            gender: 'male'
         }
     },
-
     {
         title: 'Andrologist',
-        description: 'Erectile Dysfunction, Premature Ejaculation, Testicular Pain',
+        description: 'Men Health, Erectile Dysfunction, Premature Ejaculation',
         imageUrl: 'https://placehold.co/300x200/5243c0/ffffff?text=Andrologist',
         doctorDetails: {
             name: 'Dr. Vikram Singh',
@@ -96,9 +95,9 @@ export const specialtiesData = [
             hospital: HOSPITAL_NAME,
             location: 'Begusarai, Bihar',
             address: 'C/O DR. DINESH SINGH, JYOTI KUNJ, I.M.A. PATH, NEAR T.V. TOWER. BEGUSARAI-851101, BIHAR',
-            emergency: '+91-9999-888888',
-            email: 'vikram@prashanthhealth.com',
-            website: 'www.prashanthhealth.com',
+            emergency: '+91 80029 82980',
+            email: 'prashantkashyap2804@gmail.com',
+            website: 'www.drprashantkashyap.com',
             doctorImageUrl: 'https://placehold.co/500x500/40c1b9/ffffff?text=Dr.+Vikram',
             galleryImages: [
                 'https://placehold.co/500x500/40c1b9/ffffff?text=Dr.+Vikram',
@@ -115,7 +114,7 @@ export const specialtiesData = [
     },
     {
         title: 'Cosmetologist',
-        description: 'Hair Fall, Dandruff, Premature Hair Loss',
+        description: 'Skin Care, Hair Fall, Dandruff, Beauty Treatments',
         imageUrl: 'https://placehold.co/300x200/5243c0/ffffff?text=Cosmetologist',
         doctorDetails: {
             name: 'Dr. Sania Mirza',
@@ -124,9 +123,9 @@ export const specialtiesData = [
             hospital: HOSPITAL_NAME,
             location: 'Begusarai, Bihar',
             address: 'C/O DR. DINESH SINGH, JYOTI KUNJ, I.M.A. PATH, NEAR T.V. TOWER. BEGUSARAI-851101, BIHAR',
-            emergency: '+91-7777-666666',
-            email: 'sania@prashanthhealth.com',
-            website: 'www.prashanthhealth.com',
+            emergency: '+91 80029 82980',
+            email: 'prashantkashyap2804@gmail.com',
+            website: 'www.drprashantkashyap.com',
             doctorImageUrl: 'https://placehold.co/500x500/40c1b9/ffffff?text=Dr.+Sania',
             galleryImages: [
                 'https://placehold.co/500x500/40c1b9/ffffff?text=Dr.+Sania',
@@ -144,7 +143,7 @@ export const specialtiesData = [
 ];
 
 export const testimonialsData = [
-    { name: 'Ranjit K', text: `The process is smooth, reminders are timely, the preliminaries are professional and the consultation is thorough and thoughtful at ${HOSPITAL_NAME}. Overall it’s been a very pleasant experience.` },
+    { name: 'Ranjit K', text: `The process is smooth, reminders are timely, the preliminaries are professional and the consultation is thorough and thoughtful at ${HOSPITAL_NAME}. Overall it's been a very pleasant experience.` },
     { name: 'Bhupendra M', text: `This app is a godsend. Through ${HOSPITAL_NAME}, we got a video consultation with the doctor right away. He prescribed some medicines and my daughter is better now. Many thanks!` },
     { name: 'Krishnakumar S', text: `It is a good app for online consultation. I had a wonderful experience. Thank you, ${HOSPITAL_NAME}, for a convenient service that you provide to us to save time and money.` },
 ];

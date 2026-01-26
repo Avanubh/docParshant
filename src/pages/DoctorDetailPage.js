@@ -1,5 +1,6 @@
 // src/pages/DoctorDetailPage.js
 import React from "react";
+import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   PhoneIcon,
@@ -8,16 +9,29 @@ import {
   MapPinIcon,
   WhatsAppIcon,
 } from "../components/Icons";
-import { HOSPITAL_NAME } from "../data";
+import { HOSPITAL_NAME, specialtiesData } from "../data";
 
-const DoctorDetailPage = ({ doctor }) => {
+const DoctorDetailPage = ({ doctor: propDoctor }) => {
+  const { id } = useParams();
+  
+  // Find doctor by URL parameter if not passed as prop
+  let doctor = propDoctor;
+  if (!doctor && id) {
+    // Find doctor by matching the URL slug with doctor name
+    const foundSpecialty = specialtiesData.find(specialty => {
+      const doctorSlug = specialty.doctorDetails.name.replace(/\s+/g, '-').toLowerCase();
+      return doctorSlug === id;
+    });
+    doctor = foundSpecialty?.doctorDetails;
+  }
+
   if (!doctor) {
     return (
       <section className="py-20 bg-gray-50 text-center">
         <h1 className="text-4xl font-bold text-gray-800 mb-4">
           Doctor Profile
         </h1>
-        <p className="text-lg text-gray-600">No doctor selected.</p>
+        <p className="text-lg text-gray-600">Doctor not found.</p>
       </section>
     );
   }

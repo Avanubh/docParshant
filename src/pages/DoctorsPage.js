@@ -1,9 +1,18 @@
 // src/pages/DoctorsPage.js
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { specialtiesData, HOSPITAL_NAME } from '../data';
 import { MapPinIcon } from '../components/Icons';
 
-const DoctorsPage = ({ handleDoctorClick }) => (
+const DoctorsPage = ({ handleDoctorClick }) => {
+    const navigate = useNavigate();
+    
+    const handleDoctorNavigation = (doctor) => {
+        handleDoctorClick(doctor); // Still call this to set the selected doctor
+        navigate(`/doctor/${doctor.id || doctor.name.replace(/\s+/g, '-').toLowerCase()}`);
+    };
+    
+    return (
     <section className="py-12 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4 text-center">
             <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">Meet Our Top Doctors</h1>
@@ -14,7 +23,7 @@ const DoctorsPage = ({ handleDoctorClick }) => (
                     <div
                         key={index}
                         className="bg-white p-6 rounded-3xl shadow-xl border-t-4 border-[#40c1b9] hover:shadow-2xl transition-all duration-300 cursor-pointer flex flex-col items-center text-center"
-                        onClick={() => handleDoctorClick(specialty.doctorDetails)}
+                        onClick={() => handleDoctorNavigation(specialty.doctorDetails)}
                     >
                         <div className="mb-4 relative">
                             <img
@@ -37,7 +46,13 @@ const DoctorsPage = ({ handleDoctorClick }) => (
                                     {specialty.doctorDetails.location ? specialty.doctorDetails.location.split(',')[0] : 'N/A'}
                                 </span>
                             </div>
-                            <button className="w-full bg-[#fe6645] text-white py-2 px-6 rounded-full font-semibold hover:bg-opacity-90 transition-colors duration-200">
+                            <button 
+                                className="w-full bg-[#fe6645] text-white py-2 px-6 rounded-full font-semibold hover:bg-opacity-90 transition-colors duration-200"
+                                onClick={(e) => {
+                                    e.stopPropagation(); // Prevent parent div click
+                                    handleDoctorNavigation(specialty.doctorDetails);
+                                }}
+                            >
                                 View Profile
                             </button>
                         </div>
@@ -46,6 +61,7 @@ const DoctorsPage = ({ handleDoctorClick }) => (
             </div>
         </div>
     </section>
-);
+    );
+};
 
 export default DoctorsPage;

@@ -1,5 +1,6 @@
-// src/components/footer.js (updated to pass setCurrentPage and handle specific services)
+// src/components/footer.js (updated to use React Router navigation)
 import React from "react";
+import { Link, useNavigate } from 'react-router-dom';
 import {
   faInstagram,
   faFacebook,
@@ -14,17 +15,39 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { HOSPITAL_NAME } from "../data";
 
-const Footer = ({ setCurrentPage }) => {
+const Footer = () => {
+  const navigate = useNavigate();
+
+  // Helper function to convert service name to URL slug
+  const getServiceUrl = (serviceName) => {
+    const urlMap = {
+      "Most Advanced Cath Lab (Philips)": "/service-detail/advanced-cath-lab",
+      "Expert Cardiac Opinion": "/service-detail/expert-cardiac-opinion",
+      "ECG": "/service-detail/ecg",
+      "ICU": "/service-detail/icu",
+      "Adult 2D Echo, Stress Echo": "/service-detail/adult-2d-echo",
+      "Paediatric Echo": "/service-detail/paediatric-echo",
+      "Foetal Echo": "/service-detail/foetal-echo",
+      "TMT- Treadmill Test (Stress Test)": "/service-detail/tmt-treadmill-test",
+      "Holter Monitoring": "/service-detail/holter-monitoring",
+      "Angiography": "/service-detail/angiography",
+      "TPI / PPI (Temporary and Permanent Pacemaker)": "/service-detail/tpi-ppi",
+      "ICD (Implantable Cardioverter Defibrillator)": "/service-detail/icd",
+      "CRT (Cardiac Resynchronization Therapy)": "/service-detail/crt",
+      "RA-Stenting (Renal Artery)": "/service-detail/ra-stenting",
+      "Pericardiocentesis": "/service-detail/pericardiocentesis",
+      "Angioplasty": "/service-detail/angioplasty"
+    };
+    return urlMap[serviceName] || "/";
+  };
+
   return (
     <footer className="bg-[#121c37] py-12 text-gray-300">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Column 1 (Logo/App) */}
           <div className="flex flex-col items-start">
-            <div
-              className="flex items-center space-x-2 mb-4 cursor-pointer"
-              onClick={() => setCurrentPage("Home")}
-            >
+            <Link to="/" className="flex items-center space-x-2 mb-4">
               <img
                 src="https://placehold.co/40x40/ffffff/000000?text=P"
                 alt={`${HOSPITAL_NAME} Logo`}
@@ -33,34 +56,34 @@ const Footer = ({ setCurrentPage }) => {
               <span className="text-2xl font-bold text-white">
                 {HOSPITAL_NAME}
               </span>
-            </div>
+            </Link>
 
             {/* Navigation Links */}
             <div className="mb-4">
               <ul className="space-y-2">
                 <li>
-                  <button
-                    onClick={() => setCurrentPage("Videos")}
-                    className="text-gray-300 hover:text-white transition-colors duration-200 text-left"
+                  <Link
+                    to="/videos"
+                    className="text-gray-300 hover:text-white transition-colors duration-200"
                   >
                     Educational Videos
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <button
-                    onClick={() => setCurrentPage("Gallery")}
-                    className="text-gray-300 hover:text-white transition-colors duration-200 text-left"
+                  <Link
+                    to="/gallery"
+                    className="text-gray-300 hover:text-white transition-colors duration-200"
                   >
                     Gallery
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <button
-                    onClick={() => setCurrentPage("AboutUs")}
-                    className="text-gray-300 hover:text-white transition-colors duration-200 text-left"
+                  <Link
+                    to="/about-us"
+                    className="text-gray-300 hover:text-white transition-colors duration-200"
                   >
                     About Us
-                  </button>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -119,7 +142,6 @@ const Footer = ({ setCurrentPage }) => {
                 <FontAwesomeIcon icon={faPhone} className="text-[#fe6645]" />
                 <div className="flex flex-col text-sm">
                   <a href="tel:+918002982980" className="hover:text-white transition-colors">+91 80029 82980</a>
-                  <a href="tel:06243222189" className="hover:text-white transition-colors">(06243) 222189</a>
                 </div>
               </li>
               <li className="flex items-center space-x-3">
@@ -149,12 +171,12 @@ const Footer = ({ setCurrentPage }) => {
                 "Holter Monitoring"
               ].map((service) => (
                 <li key={service}>
-                  <button
-                    onClick={() => setCurrentPage(service)}
-                    className="hover:text-white transition-colors text-left"
+                  <Link
+                    to={getServiceUrl(service)}
+                    className="hover:text-white transition-colors text-left block"
                   >
                     {service}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -176,12 +198,12 @@ const Footer = ({ setCurrentPage }) => {
                 "Angioplasty"
               ].map((service) => (
                 <li key={service}>
-                  <button
-                    onClick={() => setCurrentPage(service)}
-                    className="hover:text-white transition-colors text-left"
+                  <Link
+                    to={getServiceUrl(service)}
+                    className="hover:text-white transition-colors text-left block"
                   >
                     {service}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -193,10 +215,7 @@ const Footer = ({ setCurrentPage }) => {
           <p className="mb-2 md:mb-0">
             2024 © {HOSPITAL_NAME} Pvt Ltd. All rights reserved.
           </p>
-          <p className="mb-2 md:mb-0">
-            Disclaimer: All information provided is for educational purposes
-            only and is not intended to be a substitute for medical advice.
-          </p>
+          
 
           {/* 👇 Meet Developer Link */}
           <a

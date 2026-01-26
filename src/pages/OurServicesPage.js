@@ -1,5 +1,6 @@
-// src/pages/OurServicesPage.js (updated to use cardiac services from footer)
+// src/pages/OurServicesPage.js (updated to use React Router navigation)
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { HOSPITAL_NAME } from '../data';
 
 // Import images
@@ -11,7 +12,22 @@ import echoImg from '../images/services/Adult 2D Echo, Stress Echo.png';
 import paediatricEchoImg from '../images/services/Paediatric Echo.png';
 import tmtImg from '../images/services/TMT.png';
 
-const OurServicesPage = ({ setCurrentPage }) => {
+const OurServicesPage = () => {
+    const navigate = useNavigate();
+    
+    // Helper function to convert service name to URL slug
+    const getServiceUrl = (serviceName) => {
+        const urlMap = {
+            "Most Advanced Cath Lab (Philips)": "/service-detail/advanced-cath-lab",
+            "Expert Cardiac Opinion": "/service-detail/expert-cardiac-opinion",
+            "ECG": "/service-detail/ecg",
+            "ICU": "/service-detail/icu",
+            "Adult 2D Echo, Stress Echo": "/service-detail/adult-2d-echo",
+            "Paediatric Echo": "/service-detail/paediatric-echo",
+            "TMT- Treadmill Test (Stress Test)": "/service-detail/tmt-treadmill-test"
+        };
+        return urlMap[serviceName] || "/";
+    };
     const services = [
         {
             title: 'Most Advanced Cath Lab (Philips)',
@@ -93,7 +109,7 @@ const OurServicesPage = ({ setCurrentPage }) => {
                         <div
                             key={index}
                             className="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group"
-                            onClick={() => setCurrentPage(service.link)}
+                            onClick={() => navigate(getServiceUrl(service.link))}
                         >
                             <div className="relative overflow-hidden h-48">
                                 <img
@@ -119,7 +135,7 @@ const OurServicesPage = ({ setCurrentPage }) => {
 
                 <div className="text-center mt-16">
                     <button
-                        onClick={() => setCurrentPage('Doctors')}
+                        onClick={() => navigate('/doctors')}
                         className="bg-[#fe6645] text-white py-4 px-8 rounded-full font-semibold text-lg shadow-lg hover:bg-opacity-90 transition-all duration-200"
                     >
                         Find a Doctor

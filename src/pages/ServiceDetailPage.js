@@ -1,5 +1,6 @@
 // src/pages/ServiceDetailPage.js (updated with additional general services)
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // Import images
 import cathLabImg from '../images/services/Cath Lab.png';
@@ -22,7 +23,7 @@ const serviceDetails = {
       'Lifestyle and medication guidance'
     ],
     duration: '30-45 minutes',
-    cost: 'Starting from $150'
+    cost: 'Varies by procedure'
   },
   'ECG & Holter Monitoring': {
     title: 'ECG & Holter Monitoring',
@@ -34,7 +35,7 @@ const serviceDetails = {
       'Early detection of abnormalities'
     ],
     duration: 'Varies (ECG: 10 min, Holter: 24-48 hrs)',
-    cost: 'Starting from $100'
+    cost: 'Varies by procedure'
   },
   '2D Echo & Stress Echo': {
     title: '2D Echo & Stress Echo',
@@ -58,7 +59,7 @@ const serviceDetails = {
       'Guides safe exercise prescriptions'
     ],
     duration: '30-45 minutes',
-    cost: 'Starting from $120'
+    cost: 'Varies by procedure'
   },
   'Angiography & Angioplasty': {
     title: 'Angiography & Angioplasty',
@@ -70,7 +71,7 @@ const serviceDetails = {
       'Reduced recovery time'
     ],
     duration: '1-2 hours',
-    cost: 'Starting from $1,500'
+    cost: 'Varies by procedure'
   },
   'ICD, CRT, RA-Stenting': {
     title: 'ICD, CRT, RA-Stenting',
@@ -82,7 +83,7 @@ const serviceDetails = {
       'Targeted vascular treatment'
     ],
     duration: '2-4 hours',
-    cost: 'Starting from $5,000'
+    cost: 'Varies by procedure'
   },
   'ICU & Emergency Cardiac Care': {
     title: 'ICU & Emergency Cardiac Care',
@@ -106,7 +107,7 @@ const serviceDetails = {
       'Long-term reliability'
     ],
     duration: '1-2 hours',
-    cost: 'Starting from $4,000'
+    cost: 'Varies by procedure'
   },
   'Online Consultation': {
     title: 'Online Consultation',
@@ -118,7 +119,7 @@ const serviceDetails = {
       'Follow-up reminders and prescriptions'
     ],
     duration: '15-30 minutes',
-    cost: 'Starting from $50'
+    cost: 'Varies by procedure'
   },
   'Lab Tests': {
     title: 'Lab Tests',
@@ -130,7 +131,7 @@ const serviceDetails = {
       'Expert pathologist review'
     ],
     duration: 'Sample collection: 15 min; Results: 24-48 hrs',
-    cost: 'Starting from $30 per test'
+    cost: 'Varies by procedure'
   },
   'Health Packages': {
     title: 'Health Packages',
@@ -142,7 +143,7 @@ const serviceDetails = {
       'Discounts for family packages'
     ],
     duration: '1-2 days',
-    cost: 'Starting from $200'
+    cost: 'Varies by procedure'
   },
   'Scans & X-Rays': {
     title: 'Scans & X-Rays',
@@ -154,7 +155,7 @@ const serviceDetails = {
       'Minimal wait times'
     ],
     duration: '15-60 minutes',
-    cost: 'Starting from $150'
+    cost: 'Varies by procedure'
   },
   'Long Term Care Plans': {
     title: 'Long Term Care Plans',
@@ -166,7 +167,7 @@ const serviceDetails = {
       '24/7 support hotline'
     ],
     duration: 'Ongoing',
-    cost: 'Starting from $100/month'
+    cost: 'Varies by procedure'
   }
 };
 
@@ -198,7 +199,7 @@ Object.assign(serviceDetails, {
       "Child-friendly environment"
     ],
     duration: "30-45 minutes",
-    cost: "Starting from $150"
+    cost: "Varies by procedure"
   },
   "Foetal Echo": {
     title: "Foetal Echo",
@@ -210,7 +211,7 @@ Object.assign(serviceDetails, {
       "Safe for mother and baby"
     ],
     duration: "30-60 minutes",
-    cost: "Starting from $200"
+    cost: "Varies by procedure"
   },
   "TMT- Treadmill Test (Stress Test)": serviceDetails['TMT (Treadmill Stress Test)'],
   "Holter Monitoring": serviceDetails['ECG & Holter Monitoring'],
@@ -229,15 +230,16 @@ Object.assign(serviceDetails, {
       "Minimally invasive"
     ],
     duration: "45-60 minutes",
-    cost: "Starting from $1,000"
+    cost: "Varies by procedure"
   },
   "Angioplasty": serviceDetails['Angiography & Angioplasty']
 });
 
-const ServiceDetailPage = ({ serviceName, setCurrentPage }) => {
+const ServiceDetailPage = ({ serviceName }) => {
+  const navigate = useNavigate();
   const service = serviceDetails[serviceName] || {};
-  const navigateToHome = () => setCurrentPage('Home');
-  const navigateToServices = () => setCurrentPage('OurServices');
+  const navigateToHome = () => navigate('/');
+  const navigateToServices = () => navigate('/our-services');
 
   return (
     <div className="min-h-screen bg-gray-50 py-12">
@@ -304,7 +306,7 @@ const ServiceDetailPage = ({ serviceName, setCurrentPage }) => {
         <div className="text-center bg-[#fe6645] text-white py-8 rounded-lg">
           <h2 className="text-2xl font-bold mb-4">Ready to Book?</h2>
           <button
-            onClick={() => setCurrentPage('BookAppointment')}
+            onClick={() => navigate('/book-appointment')}
             className="bg-white text-[#fe6645] py-3 px-8 rounded-full font-semibold hover:bg-gray-100 transition-all duration-200"
           >
             Book Appointment Now
