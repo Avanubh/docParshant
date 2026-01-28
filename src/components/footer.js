@@ -1,6 +1,6 @@
 // src/components/footer.js (updated to use React Router navigation)
 import React from "react";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {
   faInstagram,
   faFacebook,
