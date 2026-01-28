@@ -1,5 +1,4 @@
 // src/pages/GalleryPage.js
-import React from 'react';
 
 // Dynamically import all images from the gallery directory
 const importAll = (r) => r.keys().map(r);

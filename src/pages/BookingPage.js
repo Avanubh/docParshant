@@ -27,7 +27,7 @@ const BookingPage = ({ selectedDoctor }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // Here you would typically send the data to a backend API
-        console.log('Booking submitted:', formData);
+        // For production, implement proper form submission to your backend
         setIsSubmitted(true);
     };
 

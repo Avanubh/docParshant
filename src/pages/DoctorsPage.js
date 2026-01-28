@@ -1,5 +1,4 @@
 // src/pages/DoctorsPage.js
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { specialtiesData, HOSPITAL_NAME } from '../data';
 import { MapPinIcon } from '../components/Icons';
@@ -30,6 +29,7 @@ const DoctorsPage = ({ handleDoctorClick }) => {
                                 src={specialty.doctorDetails.doctorImageUrl}
                                 alt={`${specialty.doctorDetails.name}`}
                                 className="w-32 h-32 object-cover rounded-full border-4 border-[#fe6645] shadow-lg"
+                                loading="lazy"
                             />
                         </div>
                         <div className="mb-3">

@@ -1,5 +1,4 @@
 // src/pages/ServiceDetailPage.js (updated with additional general services)
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // Import images

@@ -359,6 +359,7 @@ const HomePage = ({ openIndex, handleToggle, handleDoctorClick }) => {
                                                     src={doctor.doctorImageUrl}
                                                     alt={`Dr. ${doctor.name}`}
                                                     className="w-32 h-32 md:w-36 md:h-36 object-cover rounded-full border-4 border-white shadow-xl group-hover:scale-105 transition-transform duration-300"
+                                                    loading="lazy"
                                                 />
                                                 {/* Online Status Indicator */}
                                                 <div className="absolute bottom-2 right-2 w-6 h-6 bg-green-400 rounded-full border-3 border-white shadow-lg">
@@ -825,6 +826,7 @@ const HomePage = ({ openIndex, handleToggle, handleDoctorClick }) => {
                                             src={imgSrc}
                                             alt={`Medical facility ${index + 1}`}
                                             className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
+                                            loading="lazy"
                                         />
                                         
                                         {/* Overlay */}

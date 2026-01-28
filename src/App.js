@@ -1,6 +1,7 @@
 // src/App.js (updated to use React Router)
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
+import ErrorBoundary from './components/ErrorBoundary';
 import HomePage from './pages/HomePage';
 import OurServicesPage from './pages/OurServicesPage';
 import DoctorsPage from './pages/DoctorsPage';
@@ -11,6 +12,7 @@ import DoctorDetailPage from './pages/DoctorDetailPage';
 import BookingPage from './pages/BookingPage';
 import GalleryPage from './pages/GalleryPage';
 import VideoPage from './pages/VideoPage';
+import NotFoundPage from './pages/NotFoundPage';
 import { HOSPITAL_NAME } from './data';
 import AboutUsPage from './pages/AboutUsPage';
 import { WhatsAppIcon } from './components/Icons';
@@ -150,12 +152,13 @@ const App = () => {
     };
 
     return (
-        <Router>
-            <div className="min-h-screen bg-gray-50 font-sans">
-                <Navigation />
+        <ErrorBoundary>
+            <Router>
+                <div className="min-h-screen bg-gray-50 font-sans">
+                    <Navigation />
 
-                <main>
-                    <Routes>
+                    <main>
+                        <Routes>
                         <Route path="/" element={<HomePage openIndex={openIndex} handleToggle={handleToggle} handleDoctorClick={handleDoctorClick} />} />
                         <Route path="/our-services" element={<OurServicesPage />} />
                         <Route path="/doctors" element={<DoctorsPage handleDoctorClick={handleDoctorClick} />} />
@@ -204,16 +207,20 @@ const App = () => {
                         <Route path="/service-detail/ra-stenting" element={<ServiceDetailPage serviceName="RA-Stenting (Renal Artery)" />} />
                         <Route path="/service-detail/pericardiocentesis" element={<ServiceDetailPage serviceName="Pericardiocentesis" />} />
                         <Route path="/service-detail/angioplasty" element={<ServiceDetailPage serviceName="Angioplasty" />} />
+                        
+                        {/* 404 Route - Must be last */}
+                        <Route path="*" element={<NotFoundPage />} />
                     </Routes>
                 </main>
 
                 {/* Footer */}
                 <Footer />
 
-                {/* Floating WhatsApp Button - Only on Home Page */}
-                <FloatingWhatsApp />
-            </div>
-        </Router>
+                    {/* Floating WhatsApp Button - Only on Home Page */}
+                    <FloatingWhatsApp />
+                </div>
+            </Router>
+        </ErrorBoundary>
     );
 };
 

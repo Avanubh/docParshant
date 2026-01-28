@@ -1,70 +1,168 @@
-# Getting Started with Create React App
+# Prashant Heart Hospital Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive website for Prashant Heart Hospital built with React, Tailwind CSS, and React Router.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- 🏥 Modern hospital website design
+- 📱 Fully responsive across all devices
+- ⚡ Fast loading with optimized images
+- 🔍 SEO optimized with meta tags and sitemap
+- 🎨 Beautiful UI with Tailwind CSS
+- 🧭 React Router for smooth navigation
+- 📞 WhatsApp integration for appointments
+- 🖼️ Image galleries and doctor profiles
+- 📋 Appointment booking system
+- 🎥 Video content integration
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Frontend**: React 19.2.0
+- **Styling**: Tailwind CSS 3.4.0
+- **Routing**: React Router DOM 7.9.3
+- **Icons**: FontAwesome
+- **Animations**: Framer Motion
+- **Build Tool**: React Scripts
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js (v16 or higher)
+- npm or yarn
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository:
+```bash
+git clone https://github.com/your-username/dr-pk.git
+cd dr-pk
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Install dependencies:
+```bash
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Create environment file:
+```bash
+cp .env.example .env.local
+```
 
-### `npm run eject`
+4. Update the environment variables in `.env.local`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+5. Start the development server:
+```bash
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The app will open at [http://localhost:3000](http://localhost:3000)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Deployment to Vercel
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Automatic Deployment (Recommended)
 
-## Learn More
+1. Push your code to GitHub
+2. Connect your GitHub repository to Vercel
+3. Vercel will automatically deploy on every push to main branch
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Manual Deployment
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Install Vercel CLI:
+```bash
+npm i -g vercel
+```
 
-### Code Splitting
+2. Login to Vercel:
+```bash
+vercel login
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3. Deploy:
+```bash
+vercel --prod
+```
 
-### Analyzing the Bundle Size
+### Environment Variables for Production
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Set these environment variables in your Vercel dashboard:
 
-### Making a Progressive Web App
+- `REACT_APP_HOSPITAL_NAME`: Hospital name
+- `REACT_APP_WHATSAPP_NUMBER`: WhatsApp number for bookings
+- `REACT_APP_SITE_URL`: Your production domain
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Build for Production
 
-### Advanced Configuration
+```bash
+npm run build
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+This creates an optimized production build in the `build` folder.
 
-### Deployment
+## Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```
+src/
+├── components/          # Reusable components
+│   ├── ErrorBoundary.js
+│   ├── LoadingSpinner.js
+│   ├── Icons.js
+│   └── footer.js
+├── pages/              # Page components
+│   ├── HomePage.js
+│   ├── AboutUsPage.js
+│   ├── DoctorsPage.js
+│   ├── OurServicesPage.js
+│   ├── BookingPage.js
+│   ├── GalleryPage.js
+│   └── VideoPage.js
+├── images/             # Static images
+├── data/               # Data and constants
+└── App.js              # Main app component
+```
 
-### `npm run build` fails to minify
+## Performance Optimizations
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- ✅ Lazy loading for images
+- ✅ Error boundaries for better UX
+- ✅ Optimized bundle size
+- ✅ SEO meta tags
+- ✅ Proper caching headers
+- ✅ Compressed images
+- ✅ Code splitting with React Router
+
+## SEO Features
+
+- Meta tags for social sharing
+- Structured data markup
+- Sitemap.xml
+- Robots.txt
+- Proper heading hierarchy
+- Alt texts for images
+
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## License
+
+This project is proprietary and confidential.
+
+## Support
+
+For support, contact: prashantkashyap2804@gmail.com
+
+---
+
+Built with ❤️ for Prashant Heart Hospital

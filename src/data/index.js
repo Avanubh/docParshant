@@ -1,5 +1,4 @@
 // src/data/index.js
-import React from 'react';
 import { AccessibilityIcon, ConvenienceIcon, SecurityIcon, ConfidentialityIcon, CertifiedIcon, AffordabilityIcon } from '../components/Icons';
 
 export const HOSPITAL_NAME = 'Prashant Heart Hospital';

@@ -1,5 +1,4 @@
 // src/components/DoctorDetailModal.js
-import React from 'react';
 import { HOSPITAL_NAME } from '../data';
 import { PhoneIcon, MailIcon, GlobeIcon, MapPinIcon, WhatsAppIcon } from './Icons';
 

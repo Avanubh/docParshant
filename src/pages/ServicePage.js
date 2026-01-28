@@ -1,5 +1,4 @@
 // src/pages/ServicePage.js
-import React from 'react';
 import { HOSPITAL_NAME } from '../data';
 
 const ServicePage = ({ serviceName }) => (

@@ -1,5 +1,4 @@
 // src/pages/ToolPage.js
-import React from 'react';
 import { HOSPITAL_NAME } from '../data';
 
 const ToolPage = ({ toolName }) => (

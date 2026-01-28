@@ -16,7 +16,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { HOSPITAL_NAME } from "../data";
 
 const Footer = () => {
-  const navigate = useNavigate();
 
   // Helper function to convert service name to URL slug
   const getServiceUrl = (serviceName) => {
